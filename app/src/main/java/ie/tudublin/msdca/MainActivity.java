@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +21,8 @@ import ie.tudublin.msdca.database.entities.User;
 
 public class MainActivity extends AppCompatActivity {
     private String user = "Log In";
-    private String welcome = "Welcome! Please login to continue.";
+    private String welcome = "Welcome!";
+    private String serviceStatus = "Please login to continue.";
     public UserDAO userDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,25 @@ public class MainActivity extends AppCompatActivity {
 
         TextView welcomeText = findViewById(R.id.welcomeText);
         TextView userText = findViewById(R.id.userText);
+        TextView statusText = findViewById(R.id.statusText);
+        Button websiteButton = findViewById(R.id.websiteButton);
         userText.setText(user);
         welcomeText.setText(welcome);
+        statusText.setText(serviceStatus);
+
+        websiteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle button click here
+                openWebsite();
+            }
+        });
+
+    }
+
+    private void openWebsite() {
+        String url = "https://www.tudublin.ie";
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(webIntent);
     }
 }
