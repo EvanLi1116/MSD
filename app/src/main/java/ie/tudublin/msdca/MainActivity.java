@@ -18,10 +18,10 @@ import ie.tudublin.msdca.database.DAOs.UserDAO;
 import ie.tudublin.msdca.database.UserDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    private String user = "Log In";
-    private String welcome = "Welcome!";
-    private String serviceStatus = "Please login to continue.";
+    private String welcome;
+    private String serviceStatus;
     private String campus;
+    private boolean loggedin = false;
     public UserDAO userDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         userDAO = Room.databaseBuilder(this, UserDatabase.class, "user-database")
                 .allowMainThreadQueries().build().getUserDAO();
 
-        boolean loggedin = false;
         TextView welcomeText = findViewById(R.id.welcomeText);
         TextView statusText = findViewById(R.id.statusText);
         TextView campusText = findViewById(R.id.campusText);
@@ -126,5 +125,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void setCampus(String campus) {
         this.campus = campus;
+    }
+
+    public void setloggedin(boolean login) {
+        this.loggedin = login;
+    }
+    public boolean getloggedin() {
+        return loggedin;
     }
 }

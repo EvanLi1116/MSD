@@ -16,6 +16,15 @@
             android:name=".AccountInfo"
             android:exported="false" />
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Library"
+            android:exported="false" />
+        <activity
+            android:name=".Reserved"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
