@@ -18,39 +18,36 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Login  extends AppCompatActivity {
+public class SignUp extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.signup);
         Window window = getWindow();
         window.setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
 
-        EditText studentnoField = findViewById(R.id.studentnoField);
-        EditText passwordField = findViewById(R.id.passwordField);
-        Button backButtonL = findViewById(R.id.backButtonL);
-        Button loginButton = findViewById(R.id.loginButton);
-        Button signupButton = findViewById((R.id.signupButton));
+        EditText studentNo = findViewById(R.id.signupstudentnoButton);
+        EditText name = findViewById(R.id.signupnameButton);
+        EditText password = findViewById(R.id.signuppasswordButton);
+        Button backButtonS = findViewById(R.id.backButtonS);
+        Button confirmButton = findViewById(R.id.confirmButton);
 
-        backButtonL.setOnClickListener(new View.OnClickListener() {
+        backButtonS.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View v) {
-                Intent intent = new Intent(Login.this, MainActivity.class);
+                Intent intent = new Intent(SignUp.this, Login.class);
                 startActivity(intent);
             }
         });
 
-        signupButton.setOnClickListener(new View.OnClickListener() {
+        confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View v) {
-                Intent intent = new Intent(Login.this, SignUp.class);
-                startActivity(intent);
+
             }
         });
-
-
 
     }
 }
